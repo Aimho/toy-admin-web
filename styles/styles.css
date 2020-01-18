@@ -1,0 +1,227 @@
+h1, h2, h3, h4, h5, h6, p {
+  margin: 0;
+}
+
+select {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  background: url("../assets/images/arrow_drop_down-24px.svg") no-repeat 95% 50%;
+  padding: 0 12px;
+}
+
+select::-ms-expand {
+  display: none;
+}
+
+button.btn {
+  -webkit-box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1);
+          box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1);
+}
+
+button.btn-primary {
+  background-color: #026bff;
+}
+
+button.btn-primary:hover {
+  background-color: #0656c7;
+}
+
+button.btn-secondary {
+  background-color: #989ba1;
+}
+
+button.btn-secondary:hover {
+  background-color: #71747a;
+}
+
+button.btn-dark {
+  background-color: #465057;
+}
+
+button.btn-dark:hover {
+  background-color: #000000;
+}
+
+body {
+  background-color: #f4f6fa;
+  width: 100%;
+  min-width: 1280px;
+  height: 100%;
+}
+
+.login-container {
+  margin: 260px calc(50% -  220px);
+}
+
+.login-container .card-body {
+  padding: 54px 36px;
+}
+
+.login-container .card-body .card-title {
+  text-align: center;
+  margin-bottom: 44px;
+}
+
+.login-container .card-body .card-text {
+  font-size: 12px;
+  margin-bottom: 12px;
+}
+
+.login-container .card-body form .form-group {
+  margin-bottom: 12px;
+}
+
+.login-container .card-body form .form-group input {
+  font-size: 14px;
+}
+
+.login-container .card-body form .form-group input::-webkit-input-placeholder {
+  color: #d0d3db;
+}
+
+.login-container .card-body form .form-group input:-ms-input-placeholder {
+  color: #d0d3db;
+}
+
+.login-container .card-body form .form-group input::-ms-input-placeholder {
+  color: #d0d3db;
+}
+
+.login-container .card-body form .form-group input::placeholder {
+  color: #d0d3db;
+}
+
+.login-container .card-body form button {
+  width: 100%;
+  font-size: 14px;
+}
+
+.home-gnb {
+  background-color: #026bff;
+  padding: 17px 20px;
+  color: #fcfcfd;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.home-gnb .logo {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: end;
+      -ms-flex-align: end;
+          align-items: flex-end;
+  margin-right: 180px;
+}
+
+.home-gnb .logo h5 {
+  font-size: 18px;
+  margin-right: 8px;
+}
+
+.home-gnb .logo p {
+  font-size: 12px;
+}
+
+.home-gnb .logo img {
+  max-height: 25px;
+}
+
+.home-gnb a {
+  padding: 0;
+  margin-right: 40px;
+  color: #dce0e6;
+  font-size: 14px;
+}
+
+.home-gnb a.active, .home-gnb a:hover {
+  color: #fcfcfd;
+  position: relative;
+}
+
+.home-gnb a.active::after {
+  content: '';
+  position: absolute;
+  left: calc(50% - 10px);
+  width: 20px;
+  height: 2px;
+  bottom: -3px;
+  background-color: #fcfcfd;
+}
+
+.home-gnb .user {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: end;
+      -ms-flex-align: end;
+          align-items: flex-end;
+  margin-left: auto;
+}
+
+.home-gnb .user h6 {
+  font-size: 14px;
+  line-height: 21px;
+}
+
+.home-gnb .user a {
+  margin-right: 0;
+  margin-left: 8px;
+}
+
+.home-container {
+  padding: 20px;
+}
+
+.home-container .breadcrumb {
+  background-color: inherit;
+  padding: 0 20px;
+  font-size: 18px;
+}
+
+.home-container .breadcrumb li:not(:last-child)::after {
+  font-size: inherit;
+  content: '>';
+  padding: 3px 6px;
+}
+
+.home-container .filter {
+  width: 100%;
+  padding: 12px 20px;
+  background-color: #fff;
+  -webkit-box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1);
+          box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1);
+  font-size: 12px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.home-container .filter .result {
+  margin-right: auto;
+}
+
+.home-container .filter .filter-date {
+  display: inherit;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.home-container .filter .filter-date .select-keyword {
+  width: 75px;
+  height: 32px;
+  border: solid 1px #dce0e6;
+  color: #989ba1;
+  font-size: 12px;
+  margin: 0 8px;
+}
+/*# sourceMappingURL=styles.css.map */
