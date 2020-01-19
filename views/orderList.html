@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
 
-    <title>Admin - list</title>
+    <title>Admin - orderList</title>
 
     <!-- bootstrap -->
     <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
@@ -121,8 +121,71 @@
                 <button class="btn btn-dark">검색</button>
             </div>
 
-            <button class="btn btn-secondary">필터 초기화</button>
+            <button class="btn btn-secondary refresh">필터 초기화</button>
         </div>
+
+        <table class="table">
+            <thead>
+                <tr>
+                    <th scope="col">번호</th>
+                    <th scope="col">주문<br>주문 접수자</th>
+                    <th scope="col">주문번호<br>송장번호</th>
+                    <th scope="col">희망배송일<br>
+                        <span class="gray">주문일</span>
+                    </th>
+                    <th scope="col">
+                        <span class="primary">등급</span> 주문자</th>
+                    <th scope="col">아이디</th>
+                    <th scope="col">휴대폰번호<br>
+                        <span class="gray">전화번호</span>
+                    </th>
+                    <th scope="col">주문내역</th>
+                    <th scope="col">보내는분</th>
+                    <th scope="col">받는분</th>
+                    <th scope="col">배송지</th>
+                    <th scope="col">주문금액</th>
+                    <th scope="col">결제금액</th>
+                    <th scope="col">결제방법</th>
+                    <th scope="col">관리자</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- table data 필요하면 아래 tr 추가하면 됨 -->
+                <tr>
+                    <th scope="row">283749</th>
+                    <td>
+                        인터넷<br>
+                        이향미
+                    </td>
+                    <td>
+                        MC20192991029
+                    </td>
+                    <td>
+                        2019-09-23<br>
+                        <span class="gray">2019-09-09</span>
+                    </td>
+                    <td>
+                        <span class="primary">등급</span> 조웅희</td>
+                    <td>T2938401923</td>
+                    <td>
+                        010-2837-1938<br>
+                        <span class="gray">02-393-9392</span>
+                    </td>
+                    <td>진 12도 3</td>
+                    <td>홍길동</td>
+                    <td>홍길동</td>
+                    <td>경기 김포시 수지구 수지로 35(응암동 현대아파트) 102동 384호</td>
+                    <td>29,000</td>
+                    <td>29,000</td>
+                    <td>결제확인</td>
+                    <td>
+                        <button class="btn btn-secondary">
+                            상세
+                        </button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
 
         <ul class="pagination pagination-sm justify-content-center">
             <li class="page-item disabled">

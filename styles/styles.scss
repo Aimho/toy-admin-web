@@ -6,7 +6,7 @@
 
 // Color Set
 $color-background: #f4f6fa;
-$color-primary-light: #1890ff;
+$color-primary-light: #e0ebff;
 $color-primary: #026bff;
 $color-primary-hover: #0656c7;
 $color-secondary: #989ba1;
@@ -60,16 +60,22 @@ input[type="checkbox"] {
         color: $color-primary;
     }
 }
-input[type="radio"].invisible,
-input[type="checkbox"].invisible { 
-    display: none;
-    &:checked + label.btn {
-        color: $color-primary;
-        border: solid 1px $color-primary;
+input[type="radio"],
+input[type="checkbox"] { 
+    &.invisible {
+        display: none;
+        &:checked + label.btn {
+            color: $color-primary;
+            border: solid 1px $color-primary;
+        }
     }
 }
-input[type="text"]::placeholder {
-    color: #d0d3db;
+input[type="text"],
+input[type="email"],
+input[type="password"] {
+    &::placeholder {
+        color: #d0d3db;
+    }
 }
 
 label.btn,
@@ -77,6 +83,7 @@ button.btn {
     border: solid 1px #dce0e6;
 }
 button.btn-primary {
+    color: #fff !important;
     background-color: $color-primary;
     &:hover {
         background-color: $color-primary-hover;
@@ -189,11 +196,13 @@ body {
         }
         a {
             margin-right: 0;
-            margin-left: 8px;
+            margin-left: 32px;
         }
     }
 }
-.list-container {
+
+.list-container,
+.create-container {
     padding: 20px;
     @media screen and (min-width: 1920px) {
         margin: 0 calc(50% - 960px);
@@ -208,7 +217,9 @@ body {
             padding: 3px 6px;
         }
     }
+}
 
+.list-container {
     .filter {
         width: 100%;
         padding: 12px 20px;
@@ -247,14 +258,60 @@ body {
         }
         .filter-search > .form-control{
             width: 280px;
+            @media screen and (max-width: 1440px) {
+                width: 150px;
+            }
         }
 
-        .btn-secondary {
+        .btn-secondary.refresh {
             padding-left: 25px;
             background-image: url('../assets/images/refresh-24px.svg');
             background-position: 5% 50%;
             background-repeat: no-repeat;
             background-size: 18px;
+        }
+    }
+
+    .table {
+        margin-top: 12px;
+        border: solid 1px #dce0e6;
+        background-color: #fff;
+        
+        thead {
+            background-color: $color-primary-light;
+        }
+
+        th, 
+        td {
+            font-size: 14px;
+            vertical-align: middle;
+            @media screen and (max-width: 1920px) {
+                font-size: 12px;
+                max-width: 246px;
+            }
+            @media screen and (max-width: 1440px) {
+                font-size: 11px;
+                max-width: 200px;
+            }
+            .gray {
+                color: #989ba1;
+            }
+            .primary {
+                color: $color-primary;
+            }
+            .btn.btn-secondary {
+                height: 32px;
+                font-size: 12px;
+            }
+        }
+        td:not(:last-child) {
+            border-bottom: solid 1px #dce0e6;
+        }
+        
+        // 게시판 제목 width
+        th.td.board-content,
+        td.board-content {
+            width: 60%;
         }
     }
 
@@ -279,7 +336,54 @@ body {
         }
         .page-item.active .page-link {
             color: #fff;
+            background-color: $color-primary;
+        }
+    }
+}
+.list-container.board {
+    .filter {
+        .result {
+            margin-right: 40px;
+        }
+        .filter-search {
+            margin-right: auto;
+            .btn.dropdown-toggle {
+                margin-right: 0;
+            }
+        }
+    } 
+}
+
+.create-container {
+    .form-group {
+        margin: 0;
+        align-items: center;
+        background-color: #fff;
+        border-bottom: solid 1px #dce0e6;
+        font-size: 14px;
+        &:first-child {
+            border-top: solid 1px #dce0e6;
+        }
+        .col-form-label {
+            padding: 20px 26px;
             background-color: $color-primary-light;
+            & + div {
+                .form-control.sm {
+                    width: 300px;
+                } 
+                label {
+                    margin-left: 8px;
+                    margin-right: 35px;
+                }
+            }
+        }
+    }
+    .form-submit {
+        margin-top: 20px;
+        justify-content: center;
+        button {
+            width: 80px;
+            margin: 0 4px;
         }
     }
 }
