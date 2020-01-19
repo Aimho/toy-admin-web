@@ -1,21 +1,33 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    
-    <title>Admin - home</title>
 
-    <link rel="stylesheet" href="../assets/bootstrap/bootstrap.min.css">
-    <link rel="stylesheet" href="../styles/styles.css">
+    <title>Admin - list</title>
 
-    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <!-- bootstrap -->
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+        integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+        crossorigin="anonymous"></script>
     <script src="../assets/bootstrap/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="../assets/bootstrap/bootstrap.min.css">
+
+    <!-- jquery ui datepicker -->
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+
+    <link rel="stylesheet" href="../styles/styles.css">
 </head>
+
 <body>
-    <nav class="nav home-gnb">
+    <nav class="nav list-gnb">
         <div class="logo">
             <h5>사업자 로고나 이름</h5>
             <p>관리자모드</p>
@@ -32,8 +44,8 @@
             <a class="nav-link" href="#">로그아웃</a>
         </div>
     </nav>
-    
-    <div class="home-container">
+
+    <div class="list-container">
         <ol class="breadcrumb">
             <li>관리자</li>
             <li>주문관리</li>
@@ -45,12 +57,91 @@
                 검색 234,593 개 / 총 293,343 개
             </p>
             <div class="filter-date">
-                <b>날짜</b>
-                <select class="select-keyword">
-                    <option selected>주문일</option>
-                </select>
+                <div class="dropdown">
+                    <!-- todo: dropdown-menu에서 선택된 데이터로 보여주기 -->
+                    <button class="btn dropdown-toggle" type="button" id="keyword" data-toggle="dropdown"
+                        aria-haspopup="true" aria-expanded="false">
+                        주문일
+                    </button>
+                    <div class="dropdown-menu" aria-labelledby="keyword">
+                        <div class="dropdown-item">
+                            <input type="radio" name="keyword" id="orderdate" value="orderdate" checked>
+                            <label for="orderdate">주문일</label>
+                        </div>
+                    </div>
+                </div>
+                <!-- todo: datepicker local 설정(요일 한글, formay: 'YYYY-MM-DD') -->
+                <input type='text' id='datepicker' />
+
+                <input class='invisible' type="radio" name="quickDatePeek" id="today" value="today">
+                <label class="btn" for="today">오늘</label>
+
+                <input class='invisible' type="radio" name="quickDatePeek" id="threeDay" value="threeDay">
+                <label class="btn" for="threeDay">3일간</label>
+
+                <input class='invisible' type="radio" name="quickDatePeek" id="oneWeek" value="oneWeek">
+                <label class="btn" for="oneWeek">1주일</label>
+
+                <input class='invisible' type="radio" name="quickDatePeek" id="oneMonth" value="oneMonth">
+                <label class="btn" for="oneMonth">1개월</label>
+
+                <input class='invisible' type="radio" name="quickDatePeek" id="threeMonth" value="threeMonth">
+                <label class="btn" for="threeMonth">3개월</label>
             </div>
+
+            <div class="dropdown order-state">
+                <!-- todo: dropdown-menu에서 선택된 데이터로 보여주기 -->
+                <button class="btn dropdown-toggle" type="button" id="orderState" data-toggle="dropdown"
+                    aria-haspopup="true" aria-expanded="false">
+                    <!-- ex) checked: ['입금 전', '결제확인'] => 입금 전 + 1 -->
+                    주문상태
+                </button>
+                <div class="dropdown-menu" aria-labelledby="orderState">
+                    <div class="dropdown-item">
+                        <input type="checkbox" name="state" id="notPaid" value="notPaid">
+                        <label for="notPaid">입금 전</label>
+                    </div>
+                    <div class="dropdown-item">
+                        <input type="checkbox" name="state" id="confirmPaid" value="confirmPaid">
+                        <label for="confirmPaid">결제확인</label>
+                    </div>
+                    <div class="dropdown-item">
+                        <input type="checkbox" name="state" id="readyProduct" value="readyProduct">
+                        <label for="readyProduct">상품준비</label>
+                    </div>
+                    <div class="dropdown-item">
+                        <input type="checkbox" name="state" id="readyDelivery" value="readyDelivery">
+                        <label for="readyDelivery">출고준비</label>
+                    </div>
+                </div>
+            </div>
+
+            <div class="filter-search">
+                <input class="form-control" type="text" placeholder="검색어를 입력해주세요">
+                <button class="btn btn-dark">검색</button>
+            </div>
+
+            <button class="btn btn-secondary">필터 초기화</button>
         </div>
+
+        <ul class="pagination pagination-sm justify-content-center">
+            <li class="page-item disabled">
+                <a class="page-link" href="#" tabindex="-1" aria-disabled="true">&lt;</a>
+            </li>
+            <li class="page-item active"><a class="page-link" href="#">1</a></li>
+            <li class="page-item"><a class="page-link" href="#">2</a></li>
+            <li class="page-item"><a class="page-link" href="#">3</a></li>
+            <li class="page-item">
+                <a class="page-link" href="#">&gt;</a>
+            </li>
+        </ul>
     </div>
 </body>
+
+<!-- script -->
+<script>
+    $("#datepicker").datepicker();
+</script>
+<!-- //script -->
+
 </html>

@@ -1,54 +1,107 @@
-// theme blue
-$body-background: #f4f6fa;
-$home-background: #026bff;
-$btn-primary: #026bff;
-$btn-primary-hover: #0656c7;
-$btn-secondary: #989ba1;
-$btn-secondary-hover: #71747a;
-$btn-dark: #465057;
-$btn-dark-hover: #000000;
+// Font Set
+@import url('https://fonts.googleapis.com/css?family=Nanum+Gothic:400,700&display=swap');
+* {
+    font-family: 'Nanum Gothic', sans-serif;
+}
 
-// reset bootstrap
+// Color Set
+$color-background: #f4f6fa;
+$color-primary-light: #1890ff;
+$color-primary: #026bff;
+$color-primary-hover: #0656c7;
+$color-secondary: #989ba1;
+$color-secondary-hover: #71747a;
+$color-dark: #465057;
+$color-dark-hover: #000000;
+
+// Set jQuery UI
+#ui-datepicker-div {
+    font-size: 12px;
+}
+.ui-widget-content .ui-state-default, html .ui-button.ui-state-disabled:hover, html .ui-button.ui-state-disabled:active {
+    color: #fff;
+    background-color: $color-primary;
+}
+.ui-state-default.ui-state-active, .ui-state-default:hover {
+    background-color: $color-primary-hover;
+}
+input#datepicker {
+    background: url('../assets/images/date_range-24px.svg') no-repeat 95% 50%;
+    padding: 0 12px;
+    border-radius: 5px;
+}
+
+// Set bootstrap
 h1,h2,h3,h4,h5,h6,p {
     margin: 0;
 }
-select {
-    -webkit-appearance: none;
-    -moz-appearance: none;
-    appearance: none;
+.btn.dropdown-toggle {
     background: url('../assets/images/arrow_drop_down-24px.svg') no-repeat 95% 50%;
     padding: 0 12px;
-    &::-ms-expand {
-        display: none;
+    padding-right: 27px;
+}
+.dropdown-menu,
+.dropdown-item {
+    font-size: 12px;
+    padding: 0;
+}
+.dropdown-item {
+    padding: 4px 12px;
+}
+.dropdown-toggle::after {
+    display: none;
+}
+input[type="radio"],
+input[type="checkbox"] {
+    & + label {
+        margin-bottom: 0;
+    }
+    &:checked + label {
+        color: $color-primary;
     }
 }
+input[type="radio"].invisible,
+input[type="checkbox"].invisible { 
+    display: none;
+    &:checked + label.btn {
+        color: $color-primary;
+        border: solid 1px $color-primary;
+    }
+}
+input[type="text"]::placeholder {
+    color: #d0d3db;
+}
+
+label.btn,
 button.btn {
-    box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1);
+    border: solid 1px #dce0e6;
 }
 button.btn-primary {
-    background-color: $btn-primary;
+    background-color: $color-primary;
     &:hover {
-        background-color: $btn-primary-hover;
+        background-color: $color-primary-hover;
     }
 }
 button.btn-secondary {
-    background-color: $btn-secondary;
+    color: #fff !important;
+    background-color: $color-secondary;
     &:hover {
-        background-color: $btn-secondary-hover;
+        background-color: $color-secondary-hover;
     }
 }
 button.btn-dark {
-    background-color: $btn-dark;
+    color: #fff !important;
+    background-color: $color-dark;
     &:hover {
-        background-color: $btn-dark-hover;
+        background-color: $color-dark-hover;
     }
 }
 
 // common
 body {
-    background-color: $body-background;
+    background-color: $color-background;
     width: 100%;
-    min-width: 1280px;
+    min-width: 1440px;
     height: 100%;
 }
 
@@ -70,22 +123,20 @@ body {
                 margin-bottom: 12px;
                 input {
                     font-size: 14px;
-                    &::placeholder {
-                        color: #d0d3db;
-                    }
                 }
             }
             button {
                 width: 100%;
                 font-size: 14px;
+                box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1);
             }
         }
     }
 }
 
-// home
-.home-gnb {
-    background-color: $home-background;
+// list
+.list-gnb {
+    background-color: $color-primary;
     padding: 17px 20px;
     color: #fcfcfd;
     display: flex;
@@ -142,8 +193,11 @@ body {
         }
     }
 }
-.home-container {
+.list-container {
     padding: 20px;
+    @media screen and (min-width: 1920px) {
+        margin: 0 calc(50% - 960px);
+    }
     .breadcrumb {
         background-color: inherit;
         padding: 0 20px;
@@ -164,20 +218,68 @@ body {
         display: flex;
         justify-content: flex-end;
         align-items: center;
+        > *:not(:last-child) {
+            margin-right: 40px;
+            @media screen and (max-width: 1280px) {
+                margin-right: 12px;
+            }
+        }
+
+        .btn,
+        #datepicker,
+        .form-control {
+            height: 32px;
+            border: solid 1px #dce0e6;
+            color: #989ba1;
+            font-size: 12px;
+        }
+
         .result {
             margin-right: auto;
         }
-        .filter-date {
+        .filter-date,
+        .filter-search {
             display: inherit;
             align-items: center;
-            .select-keyword {
-                width: 75px;
-                height: 32px;
-                border: solid 1px #dce0e6;
-                color: #989ba1;
-                font-size: 12px;
-                margin: 0 8px;
+            *:not(:last-child) {
+                margin-right: 8px;
             }
+        }
+        .filter-search > .form-control{
+            width: 280px;
+        }
+
+        .btn-secondary {
+            padding-left: 25px;
+            background-image: url('../assets/images/refresh-24px.svg');
+            background-position: 5% 50%;
+            background-repeat: no-repeat;
+            background-size: 18px;
+        }
+    }
+
+    .pagination {
+        margin-top: 22px;
+        .page-item { 
+            .page-link,
+            .page-link:hover,
+            .page-link:focus {
+                border: 0px;
+                border-radius: 2px;
+                box-shadow: inherit;
+                background-color: transparent;
+                color: #000;
+            }
+            &:not(:last-child) {
+                margin-right: 14px;
+            }
+        }
+        .page-item.disabled .page-link {
+            color: rgba(0, 0, 0, 0.25);
+        }
+        .page-item.active .page-link {
+            color: #fff;
+            background-color: $color-primary-light;
         }
     }
 }
