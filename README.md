@@ -13,12 +13,9 @@
 2. boardCreate.html: View Board Create Page
 
 ### Color Set
-- styles.scss의 color변수의 주석을 해제하면 해당 theme의 색상으로 적용됨
 
-$color-background: #f5f6fa;
-
-$color-primary-light: #e8f3ef;
-
-$color-primary: #058f5d;
-
-$color-primary-hover: #085e3f;
+**styles.scss의 color변수의 주석을 해제하면 해당 theme의 색상으로 적용됨**
+- $color-background: #f5f6fa;
+- $color-primary-light: #e8f3ef;
+- $color-primary: #058f5d;
+- $color-primary-hover: #085e3f;
